@@ -6,7 +6,7 @@ Welcome to Blackjack / 21! This is a simple console-based implementation of the 
 
 ## How to Play
 
-1. Run the script and choose to start the game by entering 's'.
+1. Run the code and choose to start the game by entering 's'.
 2. If you wish to see the rules, you can enter 'y' when prompted.
 3. Follow the on-screen instructions to play the game.
 4. Enter 'h' to hit or 's' to stand during your turn.

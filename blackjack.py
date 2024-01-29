@@ -56,20 +56,23 @@ def blackjack(user_list, computer_list):
     ace(computer_list)
     print(f"Dealer has {computer_list} and one mystery card, sum = ?")
 
-    user_next_move = input("Would you like to hit(h) or stand(s)?:\n->>").lower()
-    if user_next_move == 'h':
-        user_list.append(random.choice(list))
-        ace(user_list)
-        if test(user_list):
+    hit_status = True
+    while hit_status:
+        user_next_move = input("Would you like to hit(h) or stand(s)?:\n->>").lower()
+        if user_next_move == 'h':
+            user_list.append(random.choice(list))
+            ace(user_list)
+            if test(user_list):
+                print(f"You have {user_list}. sum = {sum(user_list)}")
+            elif not test(user_list):
+                print(f"Busts!! You have {user_list}. sum = {sum(user_list)} \n ***** You have lost :(")
+                return
+        elif user_next_move == 's':
             print(f"You have {user_list}. sum = {sum(user_list)}")
+            hit_status = False
         else:
-            print(f"Busts!! You have {user_list}. sum = {sum(user_list)} \n ***** You have lost :(")
+            print("Wrong input")
             return
-    elif user_next_move == 's':
-        print(f"You have {user_list}. sum = {sum(user_list)}")
-    else:
-        print("Wrong input")
-        return
 
     if sum(user_list) == 21:
         print(f"You have sum = {sum(user_list)} and dealer has sum = {sum(computer_list)} \n ***** You have won!!")
